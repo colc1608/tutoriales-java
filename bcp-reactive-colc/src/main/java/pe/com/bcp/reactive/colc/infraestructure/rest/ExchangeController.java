@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +14,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import lombok.extern.slf4j.Slf4j;
 import pe.com.bcp.reactive.colc.business.port.UseCaseExchange;
-import pe.com.bcp.reactive.colc.domain.Exchange;
+import pe.com.bcp.reactive.colc.domain.entity.Exchange;
+import pe.com.bcp.reactive.colc.domain.request.ExchangeRequest;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -40,15 +40,9 @@ public class ExchangeController {
 
     @PostMapping
     @Operation(description = "Create Exchange", requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody())
-    Mono<Exchange> save(@RequestBody Exchange request) {
+    Mono<Exchange> save(@RequestBody ExchangeRequest request) {
     	log.info("request to save = {}", request);
     	return useCase.save(request);
-    }
-
-    @PutMapping
-    Mono<Exchange> updateTodo(@RequestBody Exchange request) {
-    	log.info("request to save = {}", request);
-        return useCase.save(request);
     }
 
     @DeleteMapping("/{id}")

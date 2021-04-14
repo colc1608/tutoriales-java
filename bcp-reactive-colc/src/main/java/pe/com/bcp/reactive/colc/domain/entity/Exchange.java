@@ -1,4 +1,4 @@
-package pe.com.bcp.reactive.colc.domain;
+package pe.com.bcp.reactive.colc.domain.entity;
 
 
 import org.springframework.data.annotation.Id;

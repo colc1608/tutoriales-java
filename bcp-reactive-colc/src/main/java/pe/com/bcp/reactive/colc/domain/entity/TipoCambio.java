@@ -1,4 +1,4 @@
-package pe.com.bcp.reactive.colc.domain;
+package pe.com.bcp.reactive.colc.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,9 +10,6 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class TipoCambio {
-	private String origen;
-	private String destino;
 	private Double precioVenta;
 	private Double precioCompra;
-	private String fecha;
 }
