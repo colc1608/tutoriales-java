@@ -1,0 +1,59 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        
+        <div class="form-group">
+          <label for="montoEnviado">montoEnviado</label>
+          <input
+            type="text"
+            class="form-control"
+            id="montoEnviado"
+            
+            [(ngModel)]="tutorial.montoEnviado"
+            name="montoEnviado"
+          />
+        </div>
+        <div class="form-group">
+            <label for="tipoOperacion">tipoOperacion</label>
+            <input
+              type="text"
+              class="form-control"
+              id="tipoOperacion"
+              
+              [(ngModel)]="tutorial.tipoOperacion"
+              name="tipoOperacion"
+            />
+          </div>
+  
+        <div class="form-group">
+          <label for="monedaOrigen">monedaOrigen</label>
+          <input
+            class="form-control"
+            id="monedaOrigen"
+            
+            [(ngModel)]="tutorial.monedaOrigen"
+            name="monedaOrigen"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="monedaDestino">monedaDestino</label>
+            <input
+              class="form-control"
+              id="monedaDestino"
+              
+              [(ngModel)]="tutorial.monedaDestino"
+              name="monedaDestino"
+            />
+          </div>
+  
+        <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Tutorial was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newTutorial()">Add</button>
+      </div>
+    </div>
+  </div>
+  
