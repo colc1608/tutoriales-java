@@ -10,7 +10,9 @@ public interface UseCaseExchange {
 	Flux<Exchange> findAll();
 	Mono<Exchange> save(ExchangeRequest todo);
 	Mono<Exchange> update(Exchange todo);
-	Mono<Void> deleteById(Long id);
+	
 	Mono<Exchange> findById(Long id);
 	
+	Mono<Void> deleteById(Long id);
+	Mono<Void> deleteAll();
 }

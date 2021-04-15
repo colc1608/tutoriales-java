@@ -53,22 +53,6 @@ public class UseCaseExchangeImpl implements UseCaseExchange {
 		return repository.save(entity);
 	}
 	
-	public Double calcularCambio(ExchangeRequest request) {
-		if("VENTA".equalsIgnoreCase(request.getTipoOperacion()) ) {
-			return request.getMontoEnviado() / tipoCambio.getPrecioVenta() ;
-		}else {
-			return request.getMontoEnviado() * tipoCambio.getPrecioCompra() ;
-		}
-	}
-	
-	public Double obtenerTipoCambio(ExchangeRequest request) {
-		if("VENTA".equalsIgnoreCase(request.getTipoOperacion()) ) {
-			return tipoCambio.getPrecioVenta() ;
-		}else {
-			return tipoCambio.getPrecioCompra() ;
-		}
-	}
-	
 	
 	@Override
 	public Mono<Exchange> update(Exchange request) {
@@ -83,6 +67,30 @@ public class UseCaseExchangeImpl implements UseCaseExchange {
 	@Override
 	public Mono<Exchange> findById(Long id) {
 		return repository.findById(id);
+	}
+
+
+
+	@Override
+	public Mono<Void> deleteAll() {
+		return repository.deleteAll();
+	}
+	
+	
+	public Double calcularCambio(ExchangeRequest request) {
+		if("VENTA".equalsIgnoreCase(request.getTipoOperacion()) ) {
+			return request.getMontoEnviado() / tipoCambio.getPrecioVenta() ;
+		}else {
+			return request.getMontoEnviado() * tipoCambio.getPrecioCompra() ;
+		}
+	}
+	
+	public Double obtenerTipoCambio(ExchangeRequest request) {
+		if("VENTA".equalsIgnoreCase(request.getTipoOperacion()) ) {
+			return tipoCambio.getPrecioVenta() ;
+		}else {
+			return tipoCambio.getPrecioCompra() ;
+		}
 	}
 	
     

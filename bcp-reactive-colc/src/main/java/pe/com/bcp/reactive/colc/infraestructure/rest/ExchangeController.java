@@ -1,10 +1,12 @@
 package pe.com.bcp.reactive.colc.infraestructure.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +25,7 @@ import reactor.core.publisher.Mono;
 @Slf4j
 @RestController
 @RequestMapping("/api/exchange")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Tag(name = "Controller Exchange", description = "Controller description exchange")
 public class ExchangeController {
 	
@@ -50,11 +53,23 @@ public class ExchangeController {
         return useCase.deleteById(id);
     }
     
+    @DeleteMapping
+    Mono<Void> deleteAll() {
+        return useCase.deleteAll();
+    }
+    
+    
     @GetMapping("/{id}")
     @Operation(description = "Get by Id",
     	parameters = { @Parameter(name = "id", in = ParameterIn.PATH, required = true, description = "id parameter") })
     Mono<Exchange> findById(@PathVariable("id") Long id) {
         return useCase.findById(id);
+    }
+    
+    @PutMapping("/{id}")
+    Mono<Exchange> updateTodo(@PathVariable("id") Long id, @RequestBody Exchange request) {
+    	log.info("id = " + id + " - request = " + request);
+        return useCase.update(request);
     }
     
 }
