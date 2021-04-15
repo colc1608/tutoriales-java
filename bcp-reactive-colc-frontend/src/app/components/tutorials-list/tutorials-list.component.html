@@ -1,11 +1,13 @@
 <div class="list row">
+
+    <!--
     <div class="col-md-8">
       <div class="input-group mb-3">
         <input
           type="text"
           class="form-control"
-          placeholder="Search"
-          [(ngModel)]="title"
+          placeholder="Ingresar id"
+          [(ngModel)]="id"
         />
         <div class="input-group-append">
           <button
@@ -13,12 +15,12 @@
             type="button"
             
           >
-            Search
+            Buscar
           </button>
         </div>
       </div>
     </div>
-
+    -->
 
     <div class="col-md-6">
       <h4>List de Operaciones</h4>
@@ -33,8 +35,8 @@
         </li>
       </ul>
   
-      <button class="m-3 btn btn-sm btn-danger" >
-        Remove All
+      <button class="m-3 btn btn-sm btn-danger"  (click)="removeAllTutorials()" >
+        Eliminar todo
       </button>
     </div>
 
@@ -45,27 +47,27 @@
         <h4>Exchange</h4>
         
         <div>
-          <label><strong>montoEnviado:</strong></label> {{ currentTutorial.montoEnviado }}
+          <label><strong>Monto Enviado:</strong></label> {{ currentTutorial.montoEnviado }}
         </div>
         <div>
-          <label><strong>montoRecibido:</strong></label> {{ currentTutorial.montoRecibido }}
+          <label><strong>Monto Recibido:</strong></label> {{ currentTutorial.montoRecibido }}
         </div>
         <div>
-          <label><strong>monedaOrigen:</strong></label> {{ currentTutorial.monedaOrigen }}
+          <label><strong>Moneda Origen:</strong></label> {{ currentTutorial.monedaOrigen }}
         </div>
         <div>
-          <label><strong>monedaDestino:</strong></label> {{ currentTutorial.monedaDestino }}
+          <label><strong>Moneda Destino:</strong></label> {{ currentTutorial.monedaDestino }}
         </div>
         <div>
-          <label><strong>tipoCambio:</strong></label> {{ currentTutorial.tipoCambio }}
+          <label><strong>Tipo Cambio:</strong></label> {{ currentTutorial.tipoCambio }}
         </div>
         <div>
-          <label><strong>tipoOperacion:</strong></label> {{ currentTutorial.tipoOperacion  }}
+          <label><strong>Tipo Operacion:</strong></label> {{ currentTutorial.tipoOperacion  }}
         </div>
 
 
         <a class="badge badge-warning" routerLink="/tutorials/{{ currentTutorial.id }}">
-          Edit
+          Modificar
         </a>
       </div>
   

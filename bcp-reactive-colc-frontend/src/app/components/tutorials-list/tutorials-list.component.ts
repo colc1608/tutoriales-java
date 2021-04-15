@@ -12,7 +12,7 @@ export class TutorialsListComponent implements OnInit {
   tutorials?: Tutorial[];
   currentTutorial?: Tutorial;
   currentIndex = -1;
-  title = '';
+  id = '';
 
   constructor(private tutorialService: TutorialService) { }
 
@@ -42,6 +42,18 @@ export class TutorialsListComponent implements OnInit {
   setActiveTutorial(tutorial: Tutorial, index: number): void {
     this.currentTutorial = tutorial;
     this.currentIndex = index;
+  }
+
+  removeAllTutorials(): void {
+    this.tutorialService.deleteAll()
+      .subscribe(
+        response => {
+          console.log(response);
+          this.refreshList();
+        },
+        error => {
+          console.log(error);
+        });
   }
 
 }
