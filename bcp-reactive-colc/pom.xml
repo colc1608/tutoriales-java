@@ -6,9 +6,9 @@
 
 
 	<groupId>pe.com.bcp.colc</groupId>
-	<artifactId>exchange-operation-service</artifactId>
+	<artifactId>bcp-exchange-operation-service</artifactId>
 	<version>1.0.0</version>
-	<name>exchange-operation-service</name>
+	<name>bcp-exchange-operation-service</name>
 	<description>BCP - Reactive - Cesar Lope</description>
 
 

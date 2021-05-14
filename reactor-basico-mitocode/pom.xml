@@ -12,9 +12,9 @@
 	</parent>
 
 	<groupId>pe.com.colc.reactor</groupId>
-	<artifactId>demo-reactor</artifactId>
+	<artifactId>reactor-basico-mitocode</artifactId>
 	<version>1.0.0</version>
-	<name>demo-reactor</name>
+	<name>reactor-basico-mitocode</name>
 	<description>demo reactor</description>
 
 
